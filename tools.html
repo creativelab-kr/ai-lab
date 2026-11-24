@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>도구 · AI 경영 실험실</title>
+<meta name="description" content="작은 표본 판정 계산기, 단계별 깔때기 계산기, 끝났다의 증거 점검표. 브라우저 안에서만 계산합니다.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/app.js"></script><script src="assets/tools.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 바로 가기</a>
+<div class="draft">시안 — 검수 중인 미리보기입니다. 내용이 바뀔 수 있습니다.</div>
+<header class="site"><div class="wrap bar">
+<a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1.5" y="1.5" width="29" height="29" rx="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21.5 11.2a7 7 0 1 0 0 9.6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M15 13.2v5.6l4.6-2.8z" fill="currentColor"/></svg><span>AI 경영 실험실</span></a>
+<nav class="main" aria-label="주 메뉴"><a href="index.html">실험실</a><a href="tools.html" aria-current="page">도구</a><a href="posts/01.html">연재</a><a href="ledger.html">공개 장부</a><a href="index.html#paths">학습 경로</a><a href="en/index.html" lang="en">English</a></nav>
+<label class="sr" for="theme">화면</label><select id="theme" class="theme"><option value="light">밝게</option><option value="dark">어둡게</option><option value="system">시스템</option></select>
+</div></header>
+<main id="main">
+
+<div class="wrap"><p class="crumbs"><a href="index.html">실험실</a> / 도구</p>
+<div class="hero" style="padding-top:20px"><p class="eyebrow">도구</p><h1>바로 써 보는 계산기</h1>
+<p class="lead">서버로 보내는 것이 없습니다. 넣은 숫자는 이 화면 안에서만 계산되고, 창을 닫으면 사라집니다.</p></div></div>
+
+<section id="sample"><div class="wrap">
+<div class="head"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M6 20h12M5 8h14M5 8l-2.5 6a3 3 0 0 0 5 0L5 8zm14 0-2.5 6a3 3 0 0 0 5 0L19 8z"/></svg><h2>작은 표본 판정 계산기</h2><p>실험 전과 후를 같은 크기의 표본으로 비교한다고 할 때, 그 표본으로 알아볼 수 있는 가장 작은 변화가 얼마인지 계산합니다.</p></div>
+<div class="tool">
+<div class="fields">
+<label class="f" for="s_n">한쪽 기간의 표본 수<small>예: 실험 전 2주 동안 상품 페이지를 본 사람 수, 또는 설치 수</small><input id="s_n" type="number" inputmode="numeric" min="10" step="1" value="400"></label>
+<label class="f" for="s_p">지금 전환율(%)<small>예: 본 사람 100명 중 3명이 다음 단계로 가면 3</small><input id="s_p" type="number" inputmode="decimal" min="0.01" max="99" step="0.1" value="3"></label>
+<label class="f" for="s_lift">(선택) 기대하는 상승 폭(%)<small>지금 전환율이 몇 퍼센트 늘 것으로 보는지. 넣으면 필요한 표본 수를 계산합니다</small><input id="s_lift" type="number" inputmode="decimal" min="1" step="1" value="20"></label>
+</div>
+<div class="out" aria-live="polite">
+<p class="tag guess">계산 결과 · 통계 가정에 따른 값</p>
+<p>이 표본으로 알아볼 수 있는 가장 작은 변화</p>
+<p class="big" id="s_big">—</p>
+<dl class="kv"><dt>전환율이 이만큼 되어야 보임</dt><dd id="s_p2">—</dd><dt>기대한 상승 폭을 보려면 필요한 표본(한쪽)</dt><dd id="s_need">—</dd><dt>지금 표본으로 걸리는 기간</dt><dd id="s_time">—</dd></dl>
+<p class="note" id="s_note">숫자를 넣으면 풀이가 나옵니다.</p>
+<div class="cta"><button class="btn ghost" id="s_copy" type="button">결과 한 줄 복사</button><span id="s_msg" class="tag soon" role="status" hidden>복사했습니다</span></div>
+</div></div>
+<div class="grid" style="margin-top:18px">
+<div class="card"><h3>계산 방식</h3><p>두 비율을 비교하는 검정, 양쪽 5% 유의수준, 검정력 80%. 두 표본의 크기가 같다고 봅니다.</p></div>
+<div class="card"><h3>이 계산이 틀릴 수 있는 경우</h3><p>전환이 10건이 안 될 때. 전과 후를 비교해서 계절·요일·다른 변경이 섞일 때. 같은 사람이 여러 번 세어질 때. 이럴 때는 여기 나온 값보다 더 큰 변화가 필요합니다.</p></div>
+<div class="card"><h3>결론이 안 나는 크기라면</h3><p>기간을 늘려 붙잡기보다 "판정 불가"로 닫는 기준을 시작 전에 정해 두는 편이 낫습니다.</p></div>
+</div>
+</div></section>
+
+<section id="funnel"><div class="wrap">
+<div class="head"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16l-6 7.5V19l-4 1.5v-8L4 5z"/></svg><h2>단계별 깔때기 계산기</h2><p>네 단계의 숫자를 넣으면 단계마다 남는 비율과, 한 단계가 좋아졌을 때 결과가 얼마나 달라지는지 계산합니다. 단위는 무엇이든 괜찮습니다.</p></div>
+<div class="tool">
+<div class="fields">
+<label class="f" for="f_a">노출<small>목록이나 검색에 보인 횟수</small><input id="f_a" type="number" inputmode="numeric" min="0" value="20000"></label>
+<label class="f" for="f_b">조회<small>상세 화면을 연 횟수</small><input id="f_b" type="number" inputmode="numeric" min="0" value="1400"></label>
+<label class="f" for="f_c">가입 또는 첫 사용<small>써 보기 시작한 수</small><input id="f_c" type="number" inputmode="numeric" min="0" value="440"></label>
+<label class="f" for="f_d">구매 건수<input id="f_d" type="number" inputmode="numeric" min="0" value="15"></label>
+<label class="f" for="f_stage">가정: 이 단계가 좋아진다면<select id="f_stage" class="in"><option value="0">노출에서 조회로</option><option value="1" selected>조회에서 첫 사용으로</option><option value="2">첫 사용에서 구매로</option><option value="3">노출 자체가 늘어난다면</option></select></label>
+<label class="f" for="f_up">얼마나(%)<input id="f_up" type="number" inputmode="decimal" min="0" step="5" value="20"></label>
+</div>
+<div class="out" aria-live="polite">
+<p class="tag fact">넣은 숫자 그대로 계산</p>
+<div id="f_bars" style="display:grid;gap:10px"></div>
+<dl class="kv"><dt>가장 많이 빠지는 단계</dt><dd id="f_leak">—</dd><dt>노출 1,000회당 구매</dt><dd id="f_per">—</dd></dl>
+<p class="tag guess">가정 계산</p>
+<p class="big" id="f_big">—</p>
+<p class="note" id="f_note">—</p>
+<div class="cta"><button class="btn ghost" id="f_copy" type="button">결과 한 줄 복사</button><span id="f_msg" class="tag soon" role="status" hidden>복사했습니다</span></div>
+</div></div>
+<div class="grid" style="margin-top:18px">
+<div class="card"><h3>읽는 법</h3><p>비율을 고치는 것과 들어오는 수를 늘리는 것은 다른 일입니다. 구매가 적을 때는 비율을 조금 고쳐도 늘어나는 건수가 한두 건입니다.</p></div>
+<div class="card"><h3>이 계산이 틀릴 수 있는 경우</h3><p>단계마다 기간이나 대상이 다른 숫자를 섞었을 때. 한 단계를 고치면 다음 단계 비율이 같이 변할 때(더 많이 들어오면 덜 살 수 있습니다). "가장 많이 빠지는 단계"는 비율만 본 것이라, 원래 낮은 것이 정상인 단계일 수 있습니다.</p></div>
+</div>
+</div></section>
+
+<section id="evidence"><div class="wrap">
+<div class="head"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11.5l2.2 2.2L15.5 9.5"/><rect x="4" y="4" width="16" height="16" rx="4"/></svg><h2>"끝났다"의 증거 점검표</h2><p>AI에게 맡긴 일이 끝났다는 보고를 받으면, 말이 아니라 바깥에서 확인되는 증거를 봅니다. 공개 실험들에서 가장 자주 나온 실패가 "확인 없이 끝났다고 보고하는 것"이었습니다.</p></div>
+<ul class="check" id="e_list">
+<li><label><input type="checkbox"><span><b>끝의 기준을 시작 전에 적었다</b><br>무엇이 보이면 끝인지 한 문장으로.</span></label></li>
+<li><label><input type="checkbox"><span><b>바깥에서 다시 조회했다</b><br>내가 한 작업의 결과를, 작업한 도구가 아닌 곳에서 확인했다.</span></label></li>
+<li><label><input type="checkbox"><span><b>증거가 주소나 값으로 남아 있다</b><br>화면 사진, 조회한 값, 기록 번호처럼 다른 사람이 따라가 볼 수 있는 것.</span></label></li>
+<li><label><input type="checkbox"><span><b>확인한 시각이 적혀 있다</b><br>언제 본 값인지. 어제의 "정상"은 오늘의 증거가 아니다.</span></label></li>
+<li><label><input type="checkbox"><span><b>"저장함"과 "나갔음"을 나눴다</b><br>만들어 둔 것과 실제로 사용자에게 닿은 것은 다르다.</span></label></li>
+<li><label><input type="checkbox"><span><b>성공 신호가 아니라 결과물을 봤다</b><br>"오류 없음"은 "일이 됨"이 아니다. 결과물이 실제로 있는지.</span></label></li>
+<li><label><input type="checkbox"><span><b>만든 쪽과 다른 눈이 확인했다</b><br>다른 사람이나 다른 AI가 같은 증거를 보고 같은 결론을 냈다.</span></label></li>
+<li><label><input type="checkbox"><span><b>못 한 것을 따로 적었다</b><br>건너뛴 것, 확인 못 한 것, 다음에 볼 날짜.</span></label></li>
+</ul>
+<div class="cta" style="margin-top:18px"><button class="btn primary" id="e_copy" type="button">보고 양식으로 복사</button><span id="e_msg" class="tag soon" role="status" hidden>복사했습니다</span></div>
+</div></section>
+
+</main>
+<footer class="site"><div class="wrap"><p><b>CreativeLab</b> · Ideas to Reality · <a href="https://creativelabai.kr">회사 홈페이지</a></p>
+<p>이 사이트는 방문 기록을 모으지 않습니다. 광고·추적·쿠키가 없고, 도구에 넣은 숫자는 이 브라우저 밖으로 나가지 않습니다.</p>
+<p>글과 도구는 CreativeLab 운영팀이 AI와 함께 만들었습니다. 틀린 곳을 찾으면 고치고, 고친 이력을 <a href="ledger.html#fixes">정정 이력</a>에 남깁니다.</p></div></footer>
+</body>
+</html>
