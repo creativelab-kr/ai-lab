@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="ko" data-theme="light">
+<html lang="ko" data-theme="dark" data-root="">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>공개 장부 · AI 경영 실험실</title>
 <meta name="description" content="실험 장부 양식과 공개 줄, 사례 장부 발췌, 정정 이력.">
 <meta name="robots" content="noindex,nofollow">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="dark light">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/app.js"></script>
@@ -16,17 +16,17 @@
 <div class="draft">시안 — 검수 중인 미리보기입니다. 내용이 바뀔 수 있습니다.</div>
 <header class="site"><div class="wrap bar">
 <a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1.5" y="1.5" width="29" height="29" rx="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21.5 11.2a7 7 0 1 0 0 9.6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M15 13.2v5.6l4.6-2.8z" fill="currentColor"/></svg><span>AI 경영 실험실</span></a>
-<nav class="main" aria-label="주 메뉴"><a href="index.html">실험실</a><a href="tools.html">도구</a><a href="posts/01.html">연재</a><a href="ledger.html" aria-current="page">공개 장부</a><a href="index.html#paths">학습 경로</a><a href="en/index.html" lang="en">English</a></nav>
-<label class="sr" for="theme">화면</label><select id="theme" class="theme"><option value="light">밝게</option><option value="dark">어둡게</option><option value="system">시스템</option></select>
+<nav class="main" aria-label="주 메뉴"><a href="index.html">실험실</a><a href="library.html">라이브러리</a><a href="tools.html">도구</a><a href="posts/01.html">연재</a><a href="ledger.html" aria-current="page">공개 장부</a><a href="en/index.html" lang="en">English</a></nav>
+<button class="iconbtn" type="button" data-search aria-label="콘텐츠 검색"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><span>검색</span><kbd>/</kbd></button>
+<label class="sr" for="theme">화면</label><select id="theme" class="theme"><option value="dark">어둡게</option><option value="light">밝게</option><option value="system">시스템</option></select>
 </div></header>
 <main id="main">
 
-<div class="wrap"><p class="crumbs"><a href="index.html">실험실</a> / 공개 장부</p>
-<div class="hero" style="padding-top:20px"><p class="eyebrow">공개 장부</p><h1>기록하는 방식을 엽니다</h1>
-<p class="lead">저희가 안에서 쓰는 장부의 양식과, 공개할 수 있는 줄을 옮겨 적었습니다. 금액과 앱별 수치는 적지 않습니다.</p></div></div>
+<div class="stage"><div class="wrap"><p class="crumbs"><a href="index.html">실험실</a> / 공개 장부</p><div class="hero small"><p class="eyebrow">공개 장부</p><h1>기록하는 방식을 엽니다</h1>
+<p class="lead">저희가 안에서 쓰는 장부의 양식과, 공개할 수 있는 줄을 옮겨 적었습니다. 금액과 앱별 수치는 적지 않습니다.</p></div></div></div>
 
 <section id="experiments"><div class="wrap">
-<div class="head"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="3"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg><h2>실험 장부</h2><p>한 줄이 실험 한 건입니다. 판정은 판정일에만 적고, 진 것과 판정하지 못한 것도 지우지 않습니다.</p></div>
+<div class="head rv"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="3"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg><h2>실험 장부</h2><p>한 줄이 실험 한 건입니다. 판정은 판정일에만 적고, 진 것과 판정하지 못한 것도 지우지 않습니다.</p></div>
 <div class="tablewrap"><table>
 <thead><tr><th>시작</th><th>바꾼 한 가지</th><th>가설</th><th>1차 지표</th><th>판정일</th><th>판정</th></tr></thead>
 <tbody>
@@ -34,15 +34,15 @@
 <tr><td>2026-11-23</td><td>다른 앱 열 개의 같은 칸</td><td>같음</td><td>같음</td><td>2026-12-07</td><td><span class="tag soon">판정 전</span></td></tr>
 </tbody></table></div>
 <div class="grid" style="margin-top:18px">
-<div class="card"><h3>한 번에 한 가지</h3><p>실험 중인 대상은 판정일까지 다른 것을 바꾸지 않습니다.</p></div>
-<div class="card"><h3>기준은 시작 전에</h3><p>기간, 1차 지표, 이김과 짐의 기준을 시작 전에 적고, 도중에 고치지 않습니다.</p></div>
-<div class="card"><h3>모르면 모른다고</h3><p>결과가 오차 안이면 기간을 늘려 붙잡지 않고 "판정 불가"로 닫습니다.</p></div>
+<div class="card rv"><h3>한 번에 한 가지</h3><p>실험 중인 대상은 판정일까지 다른 것을 바꾸지 않습니다.</p></div>
+<div class="card rv"><h3>기준은 시작 전에</h3><p>기간, 1차 지표, 이김과 짐의 기준을 시작 전에 적고, 도중에 고치지 않습니다.</p></div>
+<div class="card rv"><h3>모르면 모른다고</h3><p>결과가 오차 안이면 기간을 늘려 붙잡지 않고 "판정 불가"로 닫습니다.</p></div>
 </div>
 <p class="note" style="margin-top:18px">판정일이 지나면 이 표의 판정 칸을 채웁니다. 결과가 기대와 달라도 그대로 적습니다.</p>
 </div></section>
 
 <section id="cases"><div class="wrap">
-<div class="head"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="3"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg><h2>사례 장부에서</h2><p>저희가 실제로 틀린 것 가운데 세 가지입니다. 누가 틀렸는지가 아니라 다음에 무엇을 다르게 할지를 적습니다.</p></div>
+<div class="head rv"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="3"/><path d="M8 8.5h8M8 12h8M8 15.5h5"/></svg><h2>사례 장부에서</h2><p>저희가 실제로 틀린 것 가운데 세 가지입니다. 누가 틀렸는지가 아니라 다음에 무엇을 다르게 할지를 적습니다.</p></div>
 <div class="tablewrap"><table>
 <thead><tr><th>무슨 일이</th><th>왜</th><th>다음부터</th></tr></thead>
 <tbody>
@@ -53,7 +53,7 @@
 </div></section>
 
 <section id="fixes"><div class="wrap">
-<div class="head"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 5v4h4M12 8v4.5l3 1.8"/></svg><h2>정정 이력</h2><p>이 사이트의 글과 숫자를 고치면 여기에 날짜와 함께 남깁니다.</p></div>
+<div class="head rv"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 5v4h4M12 8v4.5l3 1.8"/></svg><h2>정정 이력</h2><p>이 사이트의 글과 숫자를 고치면 여기에 날짜와 함께 남깁니다.</p></div>
 <div class="tablewrap"><table>
 <thead><tr><th>날짜</th><th>어디</th><th>무엇을 고쳤나</th></tr></thead>
 <tbody>
@@ -63,7 +63,11 @@
 
 </main>
 <footer class="site"><div class="wrap"><p><b>CreativeLab</b> · Ideas to Reality · <a href="https://creativelabai.kr">회사 홈페이지</a></p>
-<p>이 사이트는 방문 기록을 모으지 않습니다. 광고·추적·쿠키가 없고, 도구에 넣은 숫자는 이 브라우저 밖으로 나가지 않습니다.</p>
-<p>글과 도구는 CreativeLab 운영팀이 AI와 함께 만들었습니다. 틀린 곳을 찾으면 고치고, 고친 이력을 <a href="ledger.html#fixes">정정 이력</a>에 남깁니다.</p></div></footer>
+<p>이 사이트는 방문 기록을 모으지 않습니다. 광고·추적·쿠키가 없고, 도구에 넣은 숫자와 검색어는 이 브라우저 밖으로 나가지 않습니다.</p>
+<p>글·영상·도구는 CreativeLab 운영팀이 AI와 함께 만들었습니다. 영상의 목소리는 AI 음성입니다. 틀린 곳을 찾으면 고치고, 고친 이력을 <a href="ledger.html#fixes">정정 이력</a>에 남깁니다.</p></div></footer>
+<dialog id="search" class="search" aria-label="콘텐츠 검색">
+<div class="sbox"><label class="sr" for="search_q">검색어</label><input id="search_q" type="search" placeholder="예: 표본, 깔때기, 증거, 판정" autocomplete="off"><button class="iconbtn" id="search_x" type="button">닫기</button></div>
+<p class="shint" id="search_h" data-idle="글·도구·장부의 본문까지 찾습니다. 검색어는 이 브라우저 밖으로 나가지 않습니다." data-none="맞는 내용이 없습니다. 다른 낱말로 찾아보세요." data-count="곳에서 찾았습니다">글·도구·장부의 본문까지 찾습니다. 검색어는 이 브라우저 밖으로 나가지 않습니다.</p>
+<ul class="sres" id="search_r"></ul></dialog>
 </body>
 </html>
