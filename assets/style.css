@@ -97,7 +97,7 @@ a.card:hover,.card.lift:hover{border-color:color-mix(in srgb,var(--accent) 70%,t
 
 /* 영상 */
 .split{display:grid;gap:28px;align-items:center}
-@media(min-width:900px){.split{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}}
+@media(min-width:900px){.split{grid-template-columns:minmax(0,5fr) minmax(0,7fr)}.split.rev{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}.split.rev>.head{order:2}}
 .player{position:relative;border-radius:22px;border:1px solid var(--rule);background:#05070F;box-shadow:0 40px 120px -40px var(--glow);overflow:hidden}
 .player video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#05070F}
 .frame{position:relative}
