@@ -80,6 +80,7 @@ a.card:hover,.card.lift:hover{border-color:color-mix(in srgb,var(--accent) 70%,t
 .card>*{position:relative;z-index:1}
 .icon{width:36px;height:36px;color:var(--accent)}
 .tag{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:750;padding:3px 10px;border-radius:10px;border:1px solid var(--rule);color:var(--sub);width:fit-content;max-width:100%}
+.tag>svg{width:14px;height:14px;flex:none}
 .tag.fact{color:var(--good);border-color:currentColor}.tag.guess{color:var(--warn);border-color:currentColor}.tag.soon{color:var(--sub)}.tag.type{color:var(--accent);border-color:currentColor}
 .more{color:var(--accent);font-weight:750;font-size:.92rem;display:inline-flex;align-items:center;gap:6px}
 .hero>*,.card>*,.out>*,.head>*,.fields>*,.prose>*,.grid>*,.tool>*,.split>*{min-width:0}
